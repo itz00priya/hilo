@@ -63,9 +63,7 @@ async def add_book(
     db.refresh(new_book)
     return new_book
 
-@app.get("/books")
-def list_books(db: Session = Depends(database.get_db)):
-    return db.query(models.Book).all()
+
 
 @app.get("/books/category/{cat_name}")
 def get_books_by_category(cat_name: str, db: Session = Depends(get_db)):
